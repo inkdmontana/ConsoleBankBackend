@@ -1,4 +1,4 @@
-from db import get_connection
+from mysql_db import get_connection
 from Models.Account import Account
 
 

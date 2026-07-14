@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a backend banking system developed using Python and MySQL following the MVC architecture. The application provides the business logic and database access for a simple banking system.
+This project is the backend portion of a simple banking application built with Python. It follows a layered architecture using Models, Services, and Repositories, and supports both MySQL and MongoDB for data storage.
 
 ## Features
 
@@ -11,55 +11,62 @@ This project is a backend banking system developed using Python and MySQL follow
 - Deposit money
 - Withdraw money
 - View transaction history
+- Prevent overdrafts
+- Record deposits and withdrawals
+- Unit tested with Pytest
 
-## Technologies Used
+## Technologies
 
 - Python 3
 - MySQL
+- MongoDB
+- Pytest
 - mysql-connector-python
+- PyMongo
 
 ## Project Structure
 
-
+```text
 ConsoleBankBackend/
-│
 ├── Models/
-├── Repositories/
+├── MongoRepositories/
+├── MySQLRepositories/
 ├── Services/
-├── db.py
+├── tests/
+├── mongo_db.py
+├── mysql_db.py
 ├── requirements.txt
 └── README.md
-
+```
 
 ## Architecture
 
+```text
+Service Layer
+      ↓
+Repository Layer
+      ↓
+MySQL / MongoDB
+```
 
-Service
-   ↓
-Repository
-   ↓
-MySQL Database
+## Running the Project
 
+Install dependencies:
 
-## Database
-
-**Schema Name**
-
-cognixia_bank
-
-**Tables**
-
-- users
-- accounts
-- transactions
-
-## Running the Application
-
-1. Start the MySQL server.
-2. Ensure the `cognixia_bank` database and tables exist.
-3. Install the required dependency:
-
+```bash
 pip install -r requirements.txt
+```
 
+Run all tests:
 
-4. Run your backend tests (for example, `test_backend.py`) to verify the service and repository layers are communicating with the database.
+```bash
+python -m pytest -v
+```
+
+## Tests
+
+The project includes unit tests for:
+
+- MongoDB Account Service
+- MySQL Account Service
+- Backend database functionality
