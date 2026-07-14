@@ -1,4 +1,5 @@
 mysql-connector-python
+Flask
 pymongo
 python-dotenv
 pytest
